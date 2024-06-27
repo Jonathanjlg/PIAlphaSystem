@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPHA INFOSYSTEM - Login</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/imgs/background.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .btn-custom {
+            background-color: #6995BD;
+            color: #fff;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #5985a8;
+        }
+        .custom-link {
+            color: #6995BD;
+        }
+        .custom-link:hover {
+            color: #5985a8;
+        }
+        /* Estilos para o botão de alternância */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc; /* Cor de fundo padrão (OFF) */
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white; /* Círculo branco padrão (OFF) */
+            transition: 0.4s; /* Animação para deslizar o círculo */
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3; /* Cor de fundo azul quando ativado (ON) */
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px); /* Desliza o círculo para a direita quando ativado (ON) */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="/static/imgs/LOGO P2.png" alt="Logo" width="250">
+        <form action="{{ url_for('login') }}" method="post">
+            <div class="form-group">
+                <input type="text" name="email" class="form-control" placeholder="E-mail" required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Senha" required>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" name="remember">
+                <label class="form-check-label">Lembrar minha senha</label>
+            </div>
+            <button type="submit" class="btn btn-custom btn-block">Entrar</button>
+        </form>
+        <p><a href="forgot-password.php" class="custom-link">Esqueci minha senha</a></p>
+        <p><a href="signup.php" class="custom-link">Cadastre-se</a></p>
+        <div>
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+            <span>Acesso Restrito | Administrador</span>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
